@@ -12,8 +12,10 @@ import { FavsService } from './favs.service';
 import { CreateFavDto } from './dto/create-fav.dto';
 import { UpdateFavDto } from './dto/update-fav.dto';
 import { AuthGuard } from 'src/auth/auth.guard';
+import { ApiBearerAuth } from '@nestjs/swagger';
 
 @Controller('favs')
+@ApiBearerAuth()
 @UseGuards(AuthGuard)
 export class FavsController {
   constructor(private readonly favsService: FavsService) {}
